@@ -3,7 +3,7 @@ from django.views.generic.base import View
 from django.views.generic import ListView, DetailView
 from .models import Movie
 
-
+#1
 class MoviesView(ListView):
     model = Movie
     queryset = Movie.objects.filter(draft=False)
