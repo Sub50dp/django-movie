@@ -1550,7 +1550,7 @@ a.move-top span {
 
 }
 
-@media(max-width:414px) {
+ @media(max-width:414px) {
     .banner-info {
         padding: 8em 0 0em 1em;
         width: 75%;
