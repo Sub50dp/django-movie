@@ -60,6 +60,7 @@ class Movie(models.Model):
     fees_in_world = models.PositiveIntegerField("Сборы в мире", default=0, help_text="Указывать в долларах")
     category = models.ForeignKey(Category, verbose_name="Категория", on_delete=models.SET_NULL, null=True)
     url = models.SlugField(max_length=160, unique=True)
+    video_url = models.URLField(max_length=200, null=True, blank=True, verbose_name="трейлер")
     draft = models.BooleanField("Черновик", default=False)
 
     def __str__(self):
@@ -67,6 +68,9 @@ class Movie(models.Model):
 
     def get_absolut_url(self):
         return reverse("movie_detail", kwargs={"slug": self.url})
+
+    def get_review(self):
+        return self.reviews_set.filter(parent__isnull=True)
 
     class Meta:
         verbose_name = "Фильм"
@@ -109,6 +113,7 @@ class Rating(models.Model):
     class Meta:
         verbose_name = "Рейтинг"
         verbose_name_plural = "Рейтинги"
+
 
 class Reviews(models.Model):
     email = models.EmailField()
