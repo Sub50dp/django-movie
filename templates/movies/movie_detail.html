@@ -115,8 +115,8 @@
                 <img src="{{ image.image.url }}" class="img-movie-shots" alt="{{ image.description }}">
                 {% endfor %}
             </p>
-            <p class="editContent" style="outline: none; cursor: inherit;">
-                {{ movie.description }}
+            <p class="editContent">
+                {{ movie.description|safe }}
             </p>
             <p class="mt-3 italic-blue editContent"
                style="outline: none; cursor: inherit;">
