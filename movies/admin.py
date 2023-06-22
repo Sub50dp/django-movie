@@ -57,6 +57,15 @@ class MovieAdmin(admin.ModelAdmin):
 
     def get_image(self, obj):
         return mark_safe(f"<image src={obj.poster.url} width='70' height=auto")
+    @admin.action(description="Снять с публикации")
+    def unpublic(self, request, queryset):
+        row_update = queryset.update(draft=True)
+        self.message_user(request, f'{row_update} было изменено')
+
+    @admin.action(description="Опубликовать")
+    def public(self, request, queryset):
+        row_update = queryset.update(draft=False)
+        self.message_user(request, f'{row_update} было изменено')
 
     get_image.short_description = "Постер"
 @admin.register(Reviews)
