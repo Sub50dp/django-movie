@@ -4,6 +4,7 @@ from django.views.generic import ListView, DetailView
 from .models import Movie
 from .forms import ReviewForm
 from .admin import ActorAdmin
+from .admin import Actor
 
 class MoviesView(ListView):
     model = Movie
