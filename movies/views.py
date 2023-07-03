@@ -5,7 +5,7 @@ from .models import Movie
 from .forms import ReviewForm
 from .admin import ActorAdmin
 from .admin import Actor
-
+from .admin import GenreAdmin
 class MoviesView(ListView):
     model = Movie
     queryset = Movie.objects.filter(draft=False)
