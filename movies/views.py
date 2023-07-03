@@ -3,6 +3,7 @@ from django.views.generic.base import View
 from django.views.generic import ListView, DetailView
 from .models import Movie
 from .forms import ReviewForm
+from .admin import ActorAdmin
 
 class MoviesView(ListView):
     model = Movie
